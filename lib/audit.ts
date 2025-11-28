@@ -54,7 +54,7 @@ export async function createAuditLog({
       },
     });
   } catch (error: unknown) {
-    logError(\'Failed to create audit log:\', error);
+    logError('Failed to create audit log:', error);
   }
 }
 
