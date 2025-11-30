@@ -1,5 +1,6 @@
 // crav-dashboard-app/app/layout.tsx
 import type { Metadata, Viewport } from "next";
+import Script from 'next/script';
 import { Inter } from "next/font/google";
 import "./globals.css";
 import IframeBridge from "./IframeBridge";
@@ -30,6 +31,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="page container">
           {children}
         </main>
+              {/* Javari AI Assistant */}
+        <Script src="https://javariai.com/embed.js" strategy="lazyOnload" />
       </body>
     </html>
   );
