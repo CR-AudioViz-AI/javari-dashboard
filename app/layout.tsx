@@ -1,39 +1,39 @@
-// crav-dashboard-app/app/layout.tsx
-import type { Metadata, Viewport } from "next";
 import Script from 'next/script';
-import { Inter } from "next/font/google";
-import "./globals.css";
-import IframeBridge from "./IframeBridge";
+import type { Metadata, Viewport } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: { default: "CRAV Dashboard", template: "%s · CRAV Dashboard" },
-  description: "Unified, enterprise-grade control center for all CRAV applications.",
-  applicationName: "CRAV Dashboard",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
-};
+  title: 'crav-dashboard | CR AudioViz AI',
+  description: 'Part of the CR AudioViz AI creative ecosystem',
+}
 
 export const viewport: Viewport = {
-  themeColor: "#0B1A2A",
-};
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover',
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" className="h-full">
-      <body className={`${inter.className} h-full bg-[var(--bg)] text-slate-700`}>
-        {/* IMPORTANT: no in-app brand header or logo here.
-           The website shell already provides global header/footer.
-           This keeps the embedded dashboard clean and avoids duplicate branding. */}
-        <IframeBridge />
-
-        {/* Page wrapper with consistent spacing so nothing is cut off */}
-        <main className="page container">
+    <html lang="en">
+      <head>
+        <meta name="format-detection" content="telephone=no" />
+      </head>
+      <body className={`${inter.className} min-h-screen min-h-[100dvh]`}>
+        <div className="min-h-screen min-h-[100dvh] bg-gradient-to-br from-gray-50 to-gray-100">
           {children}
-        </main>
-              {/* Javari AI Assistant */}
+        </div>
         <Script src="https://javariai.com/embed.js" strategy="lazyOnload" />
       </body>
     </html>
-  );
+  )
 }
